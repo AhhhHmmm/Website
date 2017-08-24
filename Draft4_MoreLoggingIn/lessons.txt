@@ -1,0 +1,15 @@
+1, Solving Algebraic Equations, True, Linear Equations
+2, Linear Equations, False, Linear Equations
+3, Rate of Change, True, Linear Equations
+4, Systems of Equations, True, Linear Equations
+1, Function Notation, True, Functions
+2, Graphs of Functions, True, Functions
+3, Inverse Functions, False, Functions
+1, Simplifying Radicals, True, Nth Roots
+2, Addition and Subtraction of Radicals, True, Nth Roots
+3, Fractional Exponents, True, Nth Roots
+4, Higher Roots, False, Nth Roots
+1, Loops, True, Programming
+2, Conditionals, True, Programming
+1, Networks, True, The Internet
+1, Binary, False, Binary

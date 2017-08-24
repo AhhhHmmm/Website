@@ -1,0 +1,30 @@
+{% extends "signup.html" %}
+
+{% block title %}
+Admin | Create User
+{% endblock %}
+
+{% block content %}
+<div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+	<div class="row">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+		<h3 class="panel-title">Create User</h3>
+		</div>
+		<div class="panel-body">
+		<form class="form-signin" method="POST" action="/create_user">
+			{{ form.csrf_token }}
+			{{ wtf.form_field(form.first_name) }}
+			{{ wtf.form_field(form.last_name) }}
+			{{ wtf.form_field(form.email) }}
+			{{ wtf.form_field(form.password) }}
+			{{ wtf.form_field(form.subject) }}
+			{{ wtf.form_field(form.block) }}
+			{{ wtf.form_field(form.account_type) }}
+			<button class="btn btn-primary" type="submit">Create User</button>
+		</form>
+		</div>
+	</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+body {
+	padding-top: 60px;
+	background-color: #eee;
+}
+
+.submit_button {
+	float: right;
+}
+
+.glyphicon-ok {
+	color: green;
+}
+
+.glyphicon-remove {
+	color: red;
+}

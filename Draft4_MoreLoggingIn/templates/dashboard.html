@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='assignmentstyle.css')}}">
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+{% if subject_name == 'Algebra 2' %}
+	{% set subject_abbrev = 'alg2' %}
+{% elif subject_name == 'AP Computer Science Principles' %}
+	{% set subject_abbrev = 'apcsp' %}
+{% else %}
+	{% set subject_abbrev = subject_name %}
+{% endif %}
+
+<div>
+</div>
+<div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+<div class="row">
+<h1>Welcome {{ current_user.first_name }},</h1>
+</div>
+<div class="row">
+{% for unit in units %}
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Unit {{ unit.unit_number }}: {{unit.title}}</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-hover">
+		<tr><th>Lesson Number</th><th>Lesson Title</th></tr>
+		{% for lesson in unit.lessons.all() %}
+		{% if lesson.available %}
+		<tr><td>{{ lesson.lesson_number }}</td><td><a href="assignment/{{ subject_abbrev }}/u{{ unit.unit_number }}/l{{ lesson.lesson_number }}">{{ lesson.title }}</a></td></tr>
+		{% else %}
+		<tr><td>{{ lesson.lesson_number }}</td><td>{{ lesson.title }} </td></tr>
+		{% endif %}
+		{% endfor %}
+		</table>
+	</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

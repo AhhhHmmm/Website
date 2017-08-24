@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Assignment U{{ unit.unit_number }}: L{{ lesson.lesson_number }}
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='assignmentstyle.css')}}">
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+<div class="row">
+{% for question in questions %}
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Question {{ question.number }}</h3>
+	</div>
+	<div class="panel-body">
+		{{ question.html|safe }}
+		{% set parts = question.parts.all() %}
+		{% for qpart in parts %}
+		<form method="POST" action="">
+			<p>({{ qpart.part }}) {{ qpart.html|safe }}</p>
+			<input type="text" name="answer">
+			<input type="hidden" name="part_id" value="{{ qpart.id }}">
+			<input type="hidden" name="user_id" value="{{ current_user.id }}">
+			<span class="answer_reaction" aria-hidden="true"></span>
+			<input type="submit" name="Submit" class="btn btn-primary submit_button" value="Submit">
+		</form>
+		{% endfor %}
+	</div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://example.com/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<script src="{{url_for('.static', filename='check.js')}}"></script>
+{% endblock %}

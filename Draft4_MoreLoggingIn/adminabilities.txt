@@ -1,0 +1,24 @@
+# Admin abiities
+
+# Manage Users
+- Create new users
+- Modify existing users
+- Reset passwords
+- Delete users
+
+# Manage Assignments
+- Create new assignments
+	- Create new assignments by uploading latex, or by copying and pasting latex?
+- Edit assignments
+	- Make changes to assigments
+	- Toggle accessibiity of assignments
+- Delete assignments
+
+
+# Get user data
+- Pick a user and get all of their data
+- How should the data be viewed?
+
+# Get assignment data
+- Get results of all students who participated in the assignment
+- Data displayed as a table?

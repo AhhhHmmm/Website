@@ -1,0 +1,3 @@
+When student logs into an assignment:
+- Check to see if student is logging into assignment for the first time.
+- If first time, creates an entry in an assignment table for them which tracks (most recent answer, tries remaining, correctness status)
